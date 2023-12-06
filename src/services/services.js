@@ -10,11 +10,10 @@ const queryParams = `?key=${process.env.REACT_APP_API_KEY}`;
 
 
 
-export const fetchWeather = async () => {
-    console.log('api', api)
-    console.log('process.env.REACT_APP_API_URL', process.env.REACT_APP_API_URL)
+export const fetchWeather = async (location) => {
+    console.log('location fetchWeather', location)
     try {
-        const response = await api.get(`${baseApiUrl}${queryParams}&q=Covilha&aqi=no`)
+        const response = await api.get(`${baseApiUrl}${queryParams}&q=${location ? location : null}&aqi=no`)
         console.log('response.data', response.data)
         return response.data
     } catch (error) {

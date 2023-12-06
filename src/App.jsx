@@ -1,30 +1,15 @@
-import { useEffect } from 'react';
 import './App.css';
-import { fetchWeather } from './services/services';
+import { Typography } from '@mui/material';
+import WeatherPage from './components/WeatherPage';
 
 function App() {
-
-
-  const checkWeather = async () => {
-    try {
-      const weatherData = await fetchWeather()
-      console.log('weatherData', weatherData)
-    } catch (error) {
-      console.error('Error fetching health status:', error)
-    }
-  }
-
-  useEffect(() => {
-    checkWeather()
-  }, [])
-
   return (
     <>
-      <div className='bg-green-500 flex items-center justify-center'>
-        Hi
+      <div className="bg-green-500 flex items-center justify-center p-4">
+        <Typography variant="h4">Hi Weather App!</Typography>
       </div>
+      <WeatherPage />
     </>
-
   );
 }
 
